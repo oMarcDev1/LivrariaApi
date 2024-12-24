@@ -1,5 +1,6 @@
 using LivrariaApi.Data;
 using LivrariaApi.Services.Autor;
+using LivrariaApi.Services.Livro;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<ILivroInterface, LivroService>();
 builder.Services.AddScoped<IAutorInterface, AutorService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
